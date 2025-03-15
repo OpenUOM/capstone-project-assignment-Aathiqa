@@ -1,3 +1,5 @@
+// initializing and establishing connection with database
+
 const dbConnection = require("./sqlite");
 
 dbConnection
@@ -18,12 +20,15 @@ function init(db) {
 
 const knex_db = require("./db-config");
 
+
+// (functions used to) interact with database
+
 const dbinitialize = async () => {
     testBase.resetDatabase(knex_db);
 }
 
 const readTeachers = async () => {
-    const sql = `SELECT * FROM dummyData`
+    const sql = `SELECT * FROM teacher`
     return new Promise((resolve, reject) => {
         knex_db
             .raw(sql)
